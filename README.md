@@ -1,6 +1,6 @@
 # Laravel Google OAuth Authentication
 
-![Tampilan Project](laravel.png)
+![Tampilan Project](sc/laravel.png)
 
 ## 📋 Tentang Project
 Project ini adalah implementasi sistem autentikasi pengguna berbasis **Identity as a Service (IDaaS)** menggunakan **Laravel**. Fokus utama dari aplikasi ini adalah fitur login yang aman dan mudah menggunakan **Google OAuth**.
