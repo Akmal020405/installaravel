@@ -5,7 +5,7 @@
 ## 📋 Tentang Project
 Project ini adalah implementasi sistem autentikasi pengguna berbasis **Identity as a Service (IDaaS)** menggunakan **Laravel**. Fokus utama dari aplikasi ini adalah fitur login yang aman dan mudah menggunakan **Google OAuth**.
 
-Aplikasi ini dibuat sebagai bagian dari tugas/project kuliah untuk mendemonstrasikan integrasi API Google Cloud Platform dengan framework Laravel, khususnya untuk kebutuhan login pihak ketiga.
+Aplikasi ini dikembangkan untuk mendemonstrasikan integrasi API Google Cloud Platform dengan framework Laravel, khususnya untuk keperluan autentikasi pihak ketiga yang modern dan cepat.
 
 **Dibuat oleh:**
 * **Nama:** Akmal Muhammad Akbar
@@ -14,22 +14,23 @@ Aplikasi ini dibuat sebagai bagian dari tugas/project kuliah untuk mendemonstras
 ---
 
 ## 🚀 Fitur Utama
-* **User Login System:** Sistem login pengguna standar (email & password).
-* **Google OAuth Integration:** Login instan menggunakan akun Google (Gmail) yang terintegrasi dengan Google Cloud Platform.
-* **Identity Management:** Pengelolaan sesi dan identitas pengguna yang aman, mencakup registrasi dan otorisasi.
-* **Landing Page:** Halaman muka default Laravel yang telah disesuaikan.
+* **Google OAuth Integration:** Memungkinkan pengguna untuk login instan menggunakan akun Google (Gmail).
+* **Identity Management:** Pengelolaan sesi dan identitas pengguna yang aman.
+* **Standar Autentikasi Laravel:** Mendukung sistem login standar (email & password) sebagai fallback.
+* **Tampilan Minimalis:** Menggunakan *landing page* standar Laravel dengan sentuhan personal.
 
 ## 🛠️ Teknologi yang Digunakan
-* [Laravel](https://laravel.com/) - Web Framework
-* [Google Cloud Platform](https://console.cloud.google.com/) - Untuk kredensial OAuth 2.0
-* PHP, Composer
-* MySQL (atau database pilihan lainnya)
+* [Laravel](https://laravel.com/) - PHP Web Framework
+* [Google Cloud Platform](https://console.cloud.google.com/) - Penyedia layanan OAuth 2.0
+* PHP
+* Composer
+* MySQL
 
 ---
 
 ## 💻 Panduan Instalasi (Localhost)
 
-Ikuti panduan ini untuk menginstal dan menjalankan proyek Laravel ini di lingkungan lokal Anda.
+Ikuti panduan terperinci ini untuk menginstal dan menjalankan proyek di lingkungan pengembangan lokal Anda.
 
 ### 1. Persiapan Lingkungan
 
@@ -37,9 +38,9 @@ Pastikan sistem Anda sudah memiliki prasyarat berikut:
 
 | Prasyarat | Versi Rekomendasi | Keterangan |
 | :--- | :--- | :--- |
-| **PHP** | 8.2 atau lebih tinggi | Laravel memerlukan versi PHP modern. |
-| **Composer** | Terbaru | Alat manajemen dependensi untuk PHP. |
-| **Server** | XAMPP/WAMP/Laragon | Server lokal untuk PHP dan database. |
+| **PHP** | 8.2+ | Diperlukan oleh Laravel. |
+| **Composer** | Terbaru | Alat manajemen dependensi. |
+| **Server** | XAMPP/WAMP/Laragon | Untuk server web dan database (MySQL/MariaDB). |
 
 ### 2. Instalasi Proyek
 
@@ -55,11 +56,11 @@ Pastikan sistem Anda sudah memiliki prasyarat berikut:
     ```bash
     composer install
     npm install
-    npm run dev # Untuk kompilasi aset frontend
+    npm run dev # Kompilasi aset frontend
     ```
 
 3.  **Setup Environment**
-    Buat file `.env` dengan menduplikasi file `.env.example`:
+    Buat file `.env` untuk konfigurasi:
     ```bash
     cp .env.example .env
     ```
@@ -67,19 +68,20 @@ Pastikan sistem Anda sudah memiliki prasyarat berikut:
 ### 3. Konfigurasi Google OAuth & Database
 
 1.  **Generate Key & Database**
-    Jalankan perintah untuk membuat kunci aplikasi yang aman dan membuat tabel database:
+    Jalankan perintah ini untuk membuat kunci aplikasi yang aman dan membuat tabel database:
     ```bash
     php artisan key:generate
     php artisan migrate
     ```
 
 2.  **Konfigurasi Kredensial di `.env`**
-    Buka file `.env` dan atur database serta kredensial Google Anda (yang didapatkan dari Google Cloud Console):
+    Buka file `.env` dan masukkan detail database serta kredensial Google OAuth yang Anda dapatkan dari Google Cloud Console:
 
     ```env
+    # Pengaturan Database
     DB_DATABASE=nama_database_kamu # <-- Ganti dengan nama database Anda
 
-    # Kredensial Google OAuth
+    # Kredensial Google OAuth 2.0
     GOOGLE_CLIENT_ID=your-google-client-id
     GOOGLE_CLIENT_SECRET=your-google-client-secret
     GOOGLE_REDIRECT_URI=[http://127.0.0.1:8000/auth/google/callback](http://127.0.0.1:8000/auth/google/callback)
